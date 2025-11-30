@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-  "build": "tsc && cd ../frontend && npm install && npm run build && xcopy /E /I /Y dist ..\\backend\\dist\\frontend",
-  "start": "node dist/index.js"
-},
-
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "npm install && tsc && cd ../frontend && npm install && npm run build && xcopy /E /I /Y dist ..\\backend\\dist\\frontend",
+    "start": "node dist/index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -32,4 +31,3 @@
     "typescript": "^5.9.3"
   }
 }
-
