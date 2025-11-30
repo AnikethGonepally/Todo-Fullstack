@@ -9,18 +9,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API routes
+// API Routes
 app.use("/auth", authRoutes);
 app.use("/todos", todoRoutes);
 
-// Serve frontend build (React)
+// Serve static frontend build
 app.use(express.static(path.join(__dirname, "frontend")));
 
-app.get("/*", (req, res) => {
+// SPA Fallback — important for React Router
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 // Start server
 app.listen(env.PORT, () => {
-  console.log(`🚀 Server started at http://localhost:${env.PORT}`);
+  console.log(`🚀 Server running on http://localhost:${env.PORT}`);
 });
